@@ -17,11 +17,7 @@ namespace TrueOrFalse
             set;
         }
 
-        public string PhrasePtBr
-        {
-            get;
-            set;
-        }
+        
 
         public bool IsTrue
         {
@@ -42,4 +38,6 @@ namespace TrueOrFalse
         }
 
     }
+
+    public class PhrasesPtBr : Phrases {}
 }

@@ -15,11 +15,11 @@ namespace TrueOrFalse
         private async void Button_OnClicked(object sender, EventArgs e)
         {
             ActivityIndicator.IsVisible = true;
-            int qtd = 0;
             Button button = (Button)sender;
+
             try
             {
-                qtd = Int32.Parse(button.Text);
+                int qtd = Int32.Parse(button.Text);
                 await Navigation.PushAsync(new QuestionPage(qtd));
             }
             catch (Exception ex)

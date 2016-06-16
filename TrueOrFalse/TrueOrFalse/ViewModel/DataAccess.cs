@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace TrueOrFalse
 {
-    public class DataAccess : IDisposable
+    public class DataAccess<T> : IDisposable where T:Phrases, new ()
     {
         private SQLite.SQLiteConnection _connection;
 
@@ -14,47 +14,51 @@ namespace TrueOrFalse
             var config = DependencyService.Get<IConfig>();
             _connection = new SQLite.SQLiteConnection(System.IO.Path.Combine(config.DBDirectory, "main.db3"));
 
-            _connection.CreateTable<Phrases>();
+            _connection.CreateTable<T>();
         }
 
-        public void Insert(Phrases phrases)
+        public void Insert(T phrase)
         {
-            _connection.Insert(phrases);
+            _connection.Insert(phrase);
+        }
+        public void InsertAll(List<T> phrases)
+        {
+            _connection.InsertAll(phrases);
         }
 
-        public void Delete(Phrases phrases)
+        public void Delete(T phrase)
         {
-            _connection.Delete(phrases);
+            _connection.Delete(phrase);
         }
 
-        public Phrases GetPhrasesByID(int id)
+        public T GetTByID(int id)
         {
-            return _connection.Table<Phrases>().FirstOrDefault(p => p.Id == id);
+            return _connection.Table<T>().FirstOrDefault(p => p.Id == id);
         }
 
-        public void Update(Phrases phrases)
+        public void Update(T T)
         {
-            _connection.Update(phrases);
+            _connection.Update(T);
         }
 
         public int Count()
         {
-            return _connection.Table<Phrases>().Count();
+            return _connection.Table<T>().Count();
         }
-        public List<Phrases> GetListPhrases()
+        public IList<T> GetPhrasesList()
         {
-            return _connection.Table<Phrases>().ToList();
+            return _connection.Table<T>().ToList();
         }
-        public List<Phrases> GetListPhrases(int num)
+        public IList<Phrases> GetPhrasesList(int num)
         {
-            List<Phrases> list = _connection.Table<Phrases>().ToList();
-            List<Phrases> returnList = new List<Phrases>();
+            IList<T> list = _connection.Table<T>().ToList();
+            IList<Phrases> returnList = new List<Phrases>();
             Random random = new Random();
 
             for (int i = 0; i < num; i++)
             {
                 int j = random.Next(list.Count);
-                while (returnList.Contains(list[j]))
+                while (returnList.Contains(list[j]) || String.IsNullOrEmpty(list[j].Phrase))
                 {
                     j = random.Next(list.Count);
                 }
@@ -63,6 +67,7 @@ namespace TrueOrFalse
             return returnList;
 
         }
+        
         public void Dispose()
         {
             _connection.Dispose();

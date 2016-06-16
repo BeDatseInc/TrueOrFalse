@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace TrueOrFalse
@@ -10,7 +12,7 @@ namespace TrueOrFalse
         private int _index = 0;
         private int _right = 0;
         private bool _isTrue;
-        private List<Phrases> list;
+        private IList<Phrases> list;
         private Random random;
 
         public QuestionPage(int num)
@@ -20,10 +22,23 @@ namespace TrueOrFalse
             random = new Random();
             _num = num;
 
-            using (DataAccess data = new DataAccess())
+            if (CultureInfo.CurrentCulture.Name == "pt-BR")
             {
-                list = data.GetListPhrases(num);
+                using (DataAccess<PhrasesPtBr> data = new DataAccess<PhrasesPtBr>())
+                {
+                    list = data.GetPhrasesList(num);
+                }
             }
+            else
+            {
+                using (DataAccess<Phrases> data = new DataAccess<Phrases>())
+                {
+                    list = data.GetPhrasesList(num);
+                }
+
+            }
+
+            
             if (list != null)
             {
                 LoadPhrase();
