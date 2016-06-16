@@ -13,7 +13,7 @@ namespace TrueOrFalse
         {
             InitializeComponent();
 
-            MainPage = new TrueOrFalse.MainPage();
+            MainPage = new NavigationPage(new TrueOrFalse.MainPage());
         }
 
         protected override void OnStart()

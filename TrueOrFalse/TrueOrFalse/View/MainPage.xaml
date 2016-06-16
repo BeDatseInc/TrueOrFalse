@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:TrueOrFalse.AppResources;assembly=TrueOrFalse"
+             x:Class="TrueOrFalse.MainPage"
+             BackgroundColor="#3F51B5"
+             Padding="10"
+             SizeChanged="FirstPage_OnSizeChanged"
+             >
+  <ContentPage.Resources>
+    
+  </ContentPage.Resources>
+  <Frame BackgroundColor="White" Padding="10">
+    
+    <AbsoluteLayout>
+
+      <Image x:Name="TrueOrFalseImage" AbsoluteLayout.LayoutBounds="0.45, 0.15, 1, 0.3" AbsoluteLayout.LayoutFlags="All">
+        <Image.Source>
+          <OnPlatform x:TypeArguments="ImageSource" Android="ic_trueorfalseoriginal.png"/>
+        </Image.Source>
+      </Image>
+
+      <Button Text="  {resources:Translate StartButton}  " 
+              AbsoluteLayout.LayoutBounds="0.5, 0.5"
+              AbsoluteLayout.LayoutFlags="PositionProportional"
+              BackgroundColor="#3F51B5"
+              Clicked="ButtonStart_OnClicked"/>
+
+      <Button AbsoluteLayout.LayoutBounds="1, 1" 
+              AbsoluteLayout.LayoutFlags="PositionProportional"
+              Text="+"
+              BorderRadius="25"
+              WidthRequest="50"
+              HeightRequest="50"
+              BackgroundColor="#c62828"
+              FontSize="Large"
+              Clicked="OnPlusButtonClicked" >
+        <TextAlignment>Start</TextAlignment>
+      </Button>
+
+
+
+      <Frame x:Name="QtdFrame" IsVisible="False" BackgroundColor="White" Padding="0"
+        AbsoluteLayout.LayoutBounds="0.5, 0.5" AbsoluteLayout.LayoutFlags="PositionProportional">
+
+        <StackLayout Orientation="Horizontal">
+          <Button Text="10" BackgroundColor="#c62828" Clicked="Button_OnClicked"/>
+          <Button Text="20" BackgroundColor="#c62828" Clicked="Button_OnClicked"/>
+          <Button Text="30" BackgroundColor="#c62828" Clicked="Button_OnClicked"/>
+        </StackLayout>
+
+      </Frame>
+
+      <ActivityIndicator x:Name="ActivityIndicator" IsVisible="False" WidthRequest="50" HeightRequest="50" Color="Red" IsRunning="True"
+        AbsoluteLayout.LayoutBounds="0.5, 1" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+    </AbsoluteLayout>
+  </Frame>
+</ContentPage>
