@@ -4,6 +4,20 @@ namespace TrueOrFalse
 {
     class CreatePhrases
     {
+        public static void CreateOriginalPhrases()
+        {
+            using (DataAccess data = new DataAccess())
+            {
+
+                if (data.GetListPhrases().Count == 0)
+                {
+                    foreach (Phrases phrase in OriginalPhrases)
+                    {
+                        data.Insert(phrase);
+                    }
+                }
+            }
+        }
 
         static readonly List<Phrases> OriginalPhrases = new List<Phrases>
         {
@@ -767,22 +781,6 @@ namespace TrueOrFalse
             }
         };
 
-        public static void CreateOriginalPhrases()
-        {
-            using (DataAccess data = new DataAccess())
-            {
-
-                if (data.GetListPhrases().Count == 0)
-                {
-                    foreach (Phrases phrase in OriginalPhrases)
-                    {
-                        data.Insert(phrase);
-                    }
-
-                }
-            }
-
-
-        }
+        
     }
 }

@@ -12,11 +12,11 @@
     <StackLayout Spacing="0">
       
       <StackLayout Padding="5" Orientation="Horizontal" HeightRequest="30">
-        <Label x:Name="CountPhrases"/>
+        <Label x:Name="CountPhrases" HorizontalOptions="CenterAndExpand"/>
       </StackLayout>
       
       <ScrollView x:Name="QuestionScrollView" Padding="5" HeightRequest="150" >
-        <Label x:Name="Question" VerticalOptions="Start" 
+        <Label x:Name="Question" VerticalOptions="Center" HorizontalOptions="Center" 
                HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
       </ScrollView>
       

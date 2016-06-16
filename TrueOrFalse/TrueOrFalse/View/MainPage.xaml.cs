@@ -55,5 +55,11 @@ namespace TrueOrFalse
         {
             QtdFrame.IsVisible = true;
         }
+        
+
+        private void OnFrameTapped(object sender, EventArgs e)
+        {
+            QtdFrame.IsVisible = false;
+        }
     }
 }

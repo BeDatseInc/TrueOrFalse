@@ -11,6 +11,9 @@
     
   </ContentPage.Resources>
   <Frame BackgroundColor="White" Padding="10">
+    <Frame.GestureRecognizers>
+      <TapGestureRecognizer Tapped="OnFrameTapped"></TapGestureRecognizer>
+    </Frame.GestureRecognizers>
     
     <AbsoluteLayout>
 
@@ -28,15 +31,15 @@
 
       <Button AbsoluteLayout.LayoutBounds="1, 1" 
               AbsoluteLayout.LayoutFlags="PositionProportional"
+              IsVisible="False"
+              IsEnabled="False"
               Text="+"
               BorderRadius="25"
               WidthRequest="50"
               HeightRequest="50"
               BackgroundColor="#c62828"
               FontSize="Large"
-              Clicked="OnPlusButtonClicked" >
-        <TextAlignment>Start</TextAlignment>
-      </Button>
+              Clicked="OnPlusButtonClicked" />
 
 
 
