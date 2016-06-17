@@ -3033,6 +3033,9 @@ namespace TrueOrFalse.Droid
 			// aapt resource value: 0x7f060005
 			public const int accept = 2131099653;
 			
+			// aapt resource value: 0x7f06002f
+			public const int app_name = 2131099695;
+			
 			// aapt resource value: 0x7f06002c
 			public const int appbar_scrolling_view_behavior = 2131099692;
 			
