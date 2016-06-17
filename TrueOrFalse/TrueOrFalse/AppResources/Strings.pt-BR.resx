@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancelar</value>
   </data>
   <data name="CustomPlaceHolder" xml:space="preserve">
-    <value>Type your custom phrase here</value>
+    <value>Digite sua pergunta personalizada</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Deletar</value>
   </data>
   <data name="False" xml:space="preserve">
-    <value>False</value>
+    <value>Falso</value>
   </data>
   <data name="FinishMessage" xml:space="preserve">
-    <value>You got {0} question{1}</value>
+    <value>Você acertou {0} pergunta{1}</value>
   </data>
   <data name="IsTrue" xml:space="preserve">
-    <value>Is True? </value>
+    <value>É verdade?</value>
   </data>
   <data name="Okay" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="RightMessage" xml:space="preserve">
-    <value>Congratulations, you are right.</value>
+    <value>Parabéns, você acertou</value>
   </data>
   <data name="RightTittle" xml:space="preserve">
-    <value>Right answer</value>
+    <value>Resposta correta</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value>Salvar</value>
   </data>
   <data name="StartButton" xml:space="preserve">
-    <value>Start</value>
+    <value>Iniciar</value>
   </data>
   <data name="Tittle" xml:space="preserve">
-    <value>True Or False</value>
+    <value>Verdadeiro ou Falso</value>
   </data>
   <data name="True" xml:space="preserve">
-    <value>True</value>
+    <value>Verdadeiro</value>
   </data>
   <data name="WrongMessage" xml:space="preserve">
-    <value>Bad, the right asnwer is {0}</value>
+    <value>Errado, a resposta correta é {0}</value>
   </data>
   <data name="WrongTiitle" xml:space="preserve">
-    <value>Wrong asnwer</value>
+    <value>Resposta errada</value>
   </data>
 </root>

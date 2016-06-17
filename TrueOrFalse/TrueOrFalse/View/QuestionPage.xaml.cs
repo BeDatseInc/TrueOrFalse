@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using Xamarin.Forms;
 
 namespace TrueOrFalse
@@ -24,14 +23,14 @@ namespace TrueOrFalse
 
             if (CultureInfo.CurrentCulture.Name == "pt-BR")
             {
-                using (DataAccess<PhrasesPtBr> data = new DataAccess<PhrasesPtBr>())
+                using (var data = new DataAccess<PhrasesPtBr>())
                 {
                     list = data.GetPhrasesList(num);
                 }
             }
             else
             {
-                using (DataAccess<Phrases> data = new DataAccess<Phrases>())
+                using (var data = new DataAccess<Phrases>())
                 {
                     list = data.GetPhrasesList(num);
                 }
@@ -50,7 +49,7 @@ namespace TrueOrFalse
         }
 
 
-        void LoadPhrase()
+        private void LoadPhrase()
         {
 
             int i = random.Next(list.Count);
@@ -66,25 +65,24 @@ namespace TrueOrFalse
 
         private async void OnButtonClicked(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
+            var button = (Button)sender;
 
-            if ((button.Text == "True" && _isTrue == true) || (button.Text == "False" && _isTrue == false))
+            if ((button.Text == AppResources.Strings.True && _isTrue == true) || (button.Text == AppResources.Strings.False && _isTrue == false))
             {
                 await DisplayAlert(AppResources.Strings.RightTittle, AppResources.Strings.RightMessage,
                         AppResources.Strings.Okay);
                 _right++;
             }
             else
-            {
-                await DisplayAlert(AppResources.Strings.WrongTiitle,
-                        String.Format(AppResources.Strings.WrongMessage, _isTrue), AppResources.Strings.Okay);
+            {   
+                await DisplayAlert(AppResources.Strings.WrongTiitle, string.Format(
+                    AppResources.Strings.WrongMessage, _isTrue ? AppResources.Strings.True : 
+                    AppResources.Strings.False), AppResources.Strings.Okay);
             }
             if (list.Count <= 0)
             {
-                await
-                    DisplayAlert(AppResources.Strings.Tittle,
-                        String.Format(AppResources.Strings.FinishMessage, _right, _right > 1 ? "s" : ""),
-                        AppResources.Strings.Okay);
+                await DisplayAlert(AppResources.Strings.Tittle, string.Format(
+                    AppResources.Strings.FinishMessage,_right, _right > 1 ? "s" : ""), AppResources.Strings.Okay);
 
                 await Navigation.PopAsync();
 

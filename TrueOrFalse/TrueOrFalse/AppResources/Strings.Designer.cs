@@ -89,6 +89,15 @@ namespace TrueOrFalse.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to False.
+        /// </summary>
+        internal static string False {
+            get {
+                return ResourceManager.GetString("False", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You got {0} question{1}.
         /// </summary>
         internal static string FinishMessage {
@@ -157,6 +166,15 @@ namespace TrueOrFalse.AppResources {
         internal static string Tittle {
             get {
                 return ResourceManager.GetString("Tittle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to True.
+        /// </summary>
+        internal static string True {
+            get {
+                return ResourceManager.GetString("True", resourceCulture);
             }
         }
         

@@ -43,6 +43,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="AppResources\Strings.pt-BR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.pt-BR.resx</DependentUpon>
+    </Compile>
     <Compile Include="AppResources\TranslateExtension.cs" />
     <Compile Include="Model\CreatePhrases.cs" />
     <Compile Include="ViewModel\DataAccess.cs" />
@@ -61,6 +66,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AppResources\Strings.pt-BR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.pt-BR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppResources\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
