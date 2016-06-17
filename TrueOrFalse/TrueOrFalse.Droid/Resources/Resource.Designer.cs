@@ -3940,6 +3940,9 @@ namespace TrueOrFalse.Droid
 			// aapt resource value: 0x7f080004
 			public const int Theme_MediaRouter_LightControlPanel = 2131230724;
 			
+			// aapt resource value: 0x7f080176
+			public const int Theme_Splash = 2131231094;
+			
 			// aapt resource value: 0x7f08010f
 			public const int ThemeOverlay_AppCompat = 2131230991;
 			

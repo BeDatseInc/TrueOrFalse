@@ -1,5 +1,6 @@
 using System;
 using Android.Gms.Ads;
+using Android.Widget;
 using TrueOrFalse;
 using TrueOrFalse.Droid.Renderer;
 using Xamarin.Forms;
@@ -27,7 +28,7 @@ namespace TrueOrFalse.Droid.Renderer
         protected override void OnElementChanged(ElementChangedEventArgs<AdMobBannerView> e)
         {
             base.OnElementChanged(e);
-
+            
             try
             {
                 var adMobElement = Element;
@@ -46,10 +47,9 @@ namespace TrueOrFalse.Droid.Renderer
                     this.SetNativeControl(ad);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-
+                Toast toast = Toast.MakeText(this.Context, ex.Message, ToastLength.Long);
             }
         }
 
