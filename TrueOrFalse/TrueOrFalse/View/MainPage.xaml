@@ -23,7 +23,7 @@
         </Image.Source>
       </Image>
 
-      <Button Text="  {resources:Translate StartButton}  " 
+      <Button x:Name="StartButton" Text="  {resources:Translate StartButton}  " 
               AbsoluteLayout.LayoutBounds="0.5, 0.5"
               AbsoluteLayout.LayoutFlags="PositionProportional"
               BackgroundColor="#3F51B5"

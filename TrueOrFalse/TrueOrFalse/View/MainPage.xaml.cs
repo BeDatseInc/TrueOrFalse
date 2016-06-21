@@ -17,6 +17,7 @@ namespace TrueOrFalse
 
         private async void VerifyUpdade()
         {
+            StartButton.IsEnabled = false;
             _data = new DataAccess<Phrases>();
             _dataPtBr = new DataAccess<PhrasesPtBr>();
             ActivityIndicator.IsVisible = true;
@@ -25,6 +26,7 @@ namespace TrueOrFalse
             await _dataPtBr.Initialize();
             await _dataPtBr.Sync();
             ActivityIndicator.IsVisible = false;
+            StartButton.IsEnabled = true;
         }
         private async void Button_OnClicked(object sender, EventArgs e)
         {

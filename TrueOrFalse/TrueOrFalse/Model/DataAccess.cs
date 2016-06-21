@@ -16,17 +16,26 @@ namespace TrueOrFalse.Model
     {
         public MobileServiceClient MobileService{ get; set; }
         IMobileServiceSyncTable<T> table;
-
+        bool isInitialized;
 
         public async Task Initialize()
         {
-            MobileService = new MobileServiceClient("https://trueorfalsebedatse.azurewebsites.net");
+            if (isInitialized) 
+                return;
 
+            var watch = new Stopwatch();
+            watch.Start();
+            MobileService = new MobileServiceClient("https://trueorfalsebedatse.azurewebsites.net");
+            
             string path = "syncstore.db";
             var store = new MobileServiceSQLiteStore(path);
             store.DefineTable<T>();
             await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
             table = MobileService.GetSyncTable<T>();
+
+            isInitialized = true;
+            watch.Stop();
+            Debug.WriteLine("Time to load phrases was " + watch.ElapsedMilliseconds);
         }
 
         public async Task<IList<T>> GetPhrases()
@@ -55,6 +64,8 @@ namespace TrueOrFalse.Model
 
         public async Task Sync()
         {
+            var watch = new Stopwatch();
+            watch.Start();
             try
             {
                 await table.PullAsync("allPhrases", table.CreateQuery());
@@ -65,6 +76,8 @@ namespace TrueOrFalse.Model
 
                 Debug.WriteLine("Unable to sync phrases, that is alright as we have offline capabilities: " + ex);
             }
+            watch.Stop();
+            Debug.WriteLine("Time to sync phrases was " + watch.ElapsedMilliseconds);
         }
       
 
