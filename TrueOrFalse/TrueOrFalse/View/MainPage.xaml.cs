@@ -6,21 +6,24 @@ namespace TrueOrFalse
 {
     public partial class MainPage : ContentPage
     {
-        private DataAccess<Phrases> data;
+        private DataAccess<Phrases> _data;
+        private DataAccess<PhrasesPtBr> _dataPtBr;
         public MainPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            data = new DataAccess<Phrases>();
             VerifyUpdade();
         }
 
         private async void VerifyUpdade()
         {
-
+            _data = new DataAccess<Phrases>();
+            _dataPtBr = new DataAccess<PhrasesPtBr>();
             ActivityIndicator.IsVisible = true;
-            await data.Initialize();
-            await data.Sync();
+            await _data.Initialize();
+            await _data.Sync();
+            await _dataPtBr.Initialize();
+            await _dataPtBr.Sync();
             ActivityIndicator.IsVisible = false;
         }
         private async void Button_OnClicked(object sender, EventArgs e)

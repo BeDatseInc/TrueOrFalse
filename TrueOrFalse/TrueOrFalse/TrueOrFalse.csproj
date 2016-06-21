@@ -51,7 +51,6 @@
     <Compile Include="AppResources\TranslateExtension.cs" />
     <Compile Include="Model\CreatePhrases.cs" />
     <Compile Include="Model\DataAccess.cs" />
-    <Compile Include="Model\IConfig.cs" />
     <Compile Include="View\AdMobBannerView.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
