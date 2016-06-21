@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 using Xamarin.Forms;
 
 namespace TrueOrFalse
 {
+
     public partial class App : Application
     {
+       
         public App()
         {
             InitializeComponent();
@@ -18,19 +16,16 @@ namespace TrueOrFalse
 
         protected override void OnStart()
         {
-            base.OnStart();
             // Handle when your app starts
         }
 
         protected override void OnSleep()
         {
-            base.OnSleep();
             // Handle when your app sleeps
         }
 
         protected override void OnResume()
         {
-            base.OnResume();
             // Handle when your app resumes
         }
     }

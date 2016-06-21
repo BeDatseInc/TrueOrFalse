@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using TrueOrFalse.Model;
 using Xamarin.Forms;
 
 namespace TrueOrFalse
@@ -18,26 +19,30 @@ namespace TrueOrFalse
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            random = new Random();
             _num = num;
 
+            Initialize();
+        }
+
+        async void Initialize()
+        {
+
+            random = new Random();
             if (CultureInfo.CurrentCulture.Name == "pt-BR")
             {
-                using (var data = new DataAccess<PhrasesPtBr>())
-                {
-                    list = data.GetPhrasesList(num);
-                }
+                var data = new DataAccess<PhrasesPtBr>();
+                
+                list = await data.GetPhrases(_num);
+
             }
             else
             {
-                using (var data = new DataAccess<Phrases>())
-                {
-                    list = data.GetPhrasesList(num);
-                }
-
+                var data = new DataAccess<Phrases>();
+                
+                list = await data.GetPhrases(_num);
             }
 
-            
+
             if (list != null)
             {
                 LoadPhrase();
@@ -47,7 +52,6 @@ namespace TrueOrFalse
                 throw new Exception("Error to load phrases from database");
             }
         }
-
 
         private void LoadPhrase()
         {

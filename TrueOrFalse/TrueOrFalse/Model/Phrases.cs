@@ -1,15 +1,18 @@
-﻿using SQLite;
+﻿
 
 namespace TrueOrFalse
 {
     public class Phrases
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id
+        [Newtonsoft.Json.JsonProperty("Id")]
+        public string Id
         {
             get;
             set;
         }
+
+        [Microsoft.WindowsAzure.MobileServices.Version]
+        public string AzureVersion { get; set; }
 
         public string Phrase
         {

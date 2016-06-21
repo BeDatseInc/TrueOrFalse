@@ -2171,7 +2171,7 @@ namespace TrueOrFalse.Droid
 			public const int ic_speaker_light = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int ic_trueorfalseoriginal = 2130837648;
+			public const int ic_trueorfalse = 2130837648;
 			
 			// aapt resource value: 0x7f020091
 			public const int ic_tv_dark = 2130837649;

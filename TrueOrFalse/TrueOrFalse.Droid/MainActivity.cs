@@ -1,12 +1,7 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-using TrueOrFalse.Droid.Renderer;
 
 namespace TrueOrFalse.Droid
 {
@@ -18,7 +13,9 @@ namespace TrueOrFalse.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             base.OnCreate(bundle);
-            
+
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
            

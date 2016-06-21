@@ -19,7 +19,7 @@
 
       <Image x:Name="TrueOrFalseImage" AbsoluteLayout.LayoutBounds="0.45, 0.15, 1, 0.3" AbsoluteLayout.LayoutFlags="All">
         <Image.Source>
-          <OnPlatform x:TypeArguments="ImageSource" Android="ic_trueorfalseoriginal.png"/>
+          <OnPlatform x:TypeArguments="ImageSource" Android="ic_trueorfalse.png"/>
         </Image.Source>
       </Image>
 

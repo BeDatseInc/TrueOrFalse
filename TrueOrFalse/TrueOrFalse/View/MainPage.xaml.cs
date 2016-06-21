@@ -1,17 +1,28 @@
 ﻿using System;
+using TrueOrFalse.Model;
 using Xamarin.Forms;
 
 namespace TrueOrFalse
 {
     public partial class MainPage : ContentPage
     {
+        private DataAccess<Phrases> data;
         public MainPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            CreatePhrases.CreateOriginalPhrases();
+            data = new DataAccess<Phrases>();
+            VerifyUpdade();
         }
 
+        private async void VerifyUpdade()
+        {
+
+            ActivityIndicator.IsVisible = true;
+            await data.Initialize();
+            await data.Sync();
+            ActivityIndicator.IsVisible = false;
+        }
         private async void Button_OnClicked(object sender, EventArgs e)
         {
             ActivityIndicator.IsVisible = true;
