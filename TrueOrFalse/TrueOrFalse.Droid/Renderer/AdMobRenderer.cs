@@ -44,6 +44,9 @@ namespace TrueOrFalse.Droid.Renderer
 #if DEBUG
                     requestbuilder.AddTestDevice("7C3A58D55540474C1AA8E7AD5E7396F9");
                     requestbuilder.AddTestDevice("F427C7A019D9C666D4921A47F48D9D83"); 
+	   		        requestbuilder.AddTestDevice("60A97121AFD75EB4B69F4CBFD54099BC");
+                    requestbuilder.AddTestDevice("6D2193CC09B19C29DEEF354C86747089");
+                    requestbuilder.AddTestDevice("A4AD8E811FEFBEF0C6CF3F6F7BCACB76");
 #endif
                     ad.LoadAd(requestbuilder.Build());
 
