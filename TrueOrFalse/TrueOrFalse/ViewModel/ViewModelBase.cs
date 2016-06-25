@@ -20,11 +20,9 @@ namespace TrueOrFalse.ViewModel
         
         protected void OnPropertyChanged([CallerMemberName]string propertyName = null)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
+            var handler = PropertyChanged;
+
+            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         
         

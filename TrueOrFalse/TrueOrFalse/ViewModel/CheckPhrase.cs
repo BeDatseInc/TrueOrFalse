@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
-using System.Threading.Tasks;
-using TrueOrFalse.Model;
+using TrueOrFalse.Services;
 using Xamarin.Forms;
 
 namespace TrueOrFalse.ViewModel
@@ -13,8 +11,8 @@ namespace TrueOrFalse.ViewModel
     {
         private int _index = 0;
         public static int Right = 0;
-        private IList<Phrases> list;
-        private Random random;
+        private IList<Phrases> _list;
+        private Random _random;
         public PhraseViewModel PhraseViewModel;
         
         public int Num { get; set; }
@@ -23,24 +21,24 @@ namespace TrueOrFalse.ViewModel
             
             PhraseViewModel.ButtonCommand = new Command(ProcessCommand);
             
-            random = new Random();
+            _random = new Random();
 
             if (CultureInfo.CurrentCulture.Name == "pt-BR")
             {
                 var data = new DataAccess<PhrasesPtBr>();
 
-                list = await data.GetPhrases(Num);
+                _list = await data.GetPhrases(Num);
 
             }
             else
             {
                 var data = new DataAccess<Phrases>();
 
-                list = await data.GetPhrases(Num);
+                _list = await data.GetPhrases(Num);
             }
 
 
-            if (list != null)
+            if (_list != null)
             {
                 LoadPhrase();
             }
@@ -52,18 +50,18 @@ namespace TrueOrFalse.ViewModel
         public void LoadPhrase()
         {
 
-            int i = random.Next(list.Count);
+            int i = _random.Next(_list.Count);
 
             if (_index >= Num)
             {
                 PhraseViewModel.FinishCommand.Execute(null);
             }
-            else if (list.Count > 0 && _index >= 0 && _index < Num)
+            else if (_list.Count > 0 && _index >= 0 && _index < Num)
             {
-                PhraseViewModel.Phrase = list[i].Phrase;
-                PhraseViewModel.IsTrue = list[i].IsTrue;
+                PhraseViewModel.Phrase = _list[i].Phrase;
+                PhraseViewModel.IsTrue = _list[i].IsTrue;
                 PhraseViewModel.QuestionsCount = $"{_index + 1}/{Num}";
-                list.RemoveAt(i);
+                _list.RemoveAt(i);
             }
             
             
@@ -77,25 +75,19 @@ namespace TrueOrFalse.ViewModel
 
         public void CheckAsnwer(bool asnwer)
         {
-            try
+
+            if (asnwer == PhraseViewModel.IsTrue)
             {
-                if (asnwer == PhraseViewModel.IsTrue)
-                {
-                    Right++;
-                    PhraseViewModel.RightCommand.Execute(null);
-                    
-                }
-                else
-                {
-                    PhraseViewModel.WrongCommand.Execute(null);
-                }
-                _index++;
+                Right++;
+                PhraseViewModel.RightCommand.Execute(null);
+
             }
-            catch (Exception ex)
+            else
             {
-                Debug.WriteLine($"Erro ao exibir display alert, mensagem: {ex}");
+                PhraseViewModel.WrongCommand.Execute(null);
             }
+            _index++;
+
         }
-        
     }
 }

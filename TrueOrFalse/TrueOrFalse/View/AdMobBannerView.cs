@@ -1,7 +1,7 @@
 ﻿
 using Xamarin.Forms;
 
-namespace TrueOrFalse
+namespace TrueOrFalse.View
 {
     public class AdMobBannerView : ContentView
     {

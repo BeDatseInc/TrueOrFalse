@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:TrueOrFalse;assembly=TrueOrFalse"
              xmlns:resources="clr-namespace:TrueOrFalse.AppResources;assembly=TrueOrFalse"
-             xmlns:viewlModel="clr-namespace:TrueOrFalse.ViewModel;assembly=TrueOrFalse"
-             x:Class="TrueOrFalse.QuestionPage"
+             xmlns:view="clr-namespace:TrueOrFalse.View;assembly=TrueOrFalse"
+             x:Class="TrueOrFalse.View.QuestionPage"
              SizeChanged="OnPageSizeChanged"
              BackgroundColor="#3F51B5"
              Padding="10">
@@ -27,7 +26,7 @@
         <Button x:Name="FalseButton" Text="{resources:Translate False}" Command="{Binding ButtonCommand}" CommandParameter="false" BackgroundColor="#c62828"/>
       </StackLayout>
       
-      <controls:AdMobBannerView HeightRequest="50" WidthRequest="320" VerticalOptions="EndAndExpand"/>
+      <view:AdMobBannerView HeightRequest="50" WidthRequest="320" VerticalOptions="EndAndExpand"/>
     
     </StackLayout>
     

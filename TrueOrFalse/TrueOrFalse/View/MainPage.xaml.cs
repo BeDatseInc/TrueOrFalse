@@ -1,8 +1,8 @@
 ﻿using System;
-using TrueOrFalse.Model;
+using TrueOrFalse.Services;
 using Xamarin.Forms;
 
-namespace TrueOrFalse
+namespace TrueOrFalse.View
 {
     public partial class MainPage : ContentPage
     {
@@ -48,6 +48,7 @@ namespace TrueOrFalse
             {
                 QtdFrame.IsVisible = false;
                 ActivityIndicator.IsVisible = false;
+                StartButton.IsVisible = true;
             }
 
         }
@@ -72,12 +73,15 @@ namespace TrueOrFalse
         private void ButtonStart_OnClicked(object sender, EventArgs e)
         {
             QtdFrame.IsVisible = true;
+            StartButton.IsVisible = false;
         }
         
 
         private void OnFrameTapped(object sender, EventArgs e)
         {
             QtdFrame.IsVisible = false;
+
+            StartButton.IsVisible = true;
         }
     }
 }

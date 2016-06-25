@@ -1,31 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Threading.Tasks;
-using TrueOrFalse.Model;
 using TrueOrFalse.ViewModel;
 using Xamarin.Forms;
 
-namespace TrueOrFalse
+namespace TrueOrFalse.View
 {
     public partial class QuestionPage : ContentPage
     {
-        private CheckPhrase checkPhrase;
+        private CheckPhrase _checkPhrase;
         public QuestionPage(int num)
         {
             NavigationPage.SetHasNavigationBar(this, false);
-            //PhraseViewModel.ShowCommand = new Command(async () =>
-            //{
-            //    await ShowMessage();
-            //});
-            
-
-            checkPhrase = new CheckPhrase {Num = num};
-            this.BindingContext = checkPhrase.PhraseViewModel = new PhraseViewModel();
-            checkPhrase.Initialize();
-            checkPhrase.PhraseViewModel.RightCommand = new Command(RightAnswer);
-            checkPhrase.PhraseViewModel.WrongCommand = new Command(WrongAnswer);
-            checkPhrase.PhraseViewModel.FinishCommand = new Command(FinishGame);
+            _checkPhrase = new CheckPhrase {Num = num};
+            this.BindingContext = _checkPhrase.PhraseViewModel = new PhraseViewModel();
+            _checkPhrase.Initialize();
+            _checkPhrase.PhraseViewModel.RightCommand = new Command(RightAnswer);
+            _checkPhrase.PhraseViewModel.WrongCommand = new Command(WrongAnswer);
+            _checkPhrase.PhraseViewModel.FinishCommand = new Command(FinishGame);
             InitializeComponent();
         }
 
@@ -33,14 +23,14 @@ namespace TrueOrFalse
         {
             await DisplayAlert(AppResources.Strings.RightTittle, AppResources.Strings.RightMessage,
                 AppResources.Strings.Okay);
-            checkPhrase.LoadPhrase();
+            _checkPhrase.LoadPhrase();
         }
         private async void WrongAnswer()
         {
             await DisplayAlert(AppResources.Strings.WrongTiitle, string.Format(
-                AppResources.Strings.WrongMessage, checkPhrase.PhraseViewModel.IsTrue ? 
+                AppResources.Strings.WrongMessage, _checkPhrase.PhraseViewModel.IsTrue ? 
                 AppResources.Strings.True : AppResources.Strings.False), AppResources.Strings.Okay);
-            checkPhrase.LoadPhrase();
+            _checkPhrase.LoadPhrase();
         }
 
         private async void FinishGame()

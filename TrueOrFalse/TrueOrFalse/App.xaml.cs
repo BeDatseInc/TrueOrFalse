@@ -1,5 +1,4 @@
-﻿
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace TrueOrFalse
 {
@@ -11,7 +10,7 @@ namespace TrueOrFalse
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new TrueOrFalse.MainPage());
+            MainPage = new NavigationPage(new View.MainPage());
         }
 
         protected override void OnStart()

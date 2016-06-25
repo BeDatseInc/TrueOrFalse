@@ -49,8 +49,7 @@
       <DependentUpon>Strings.pt-BR.resx</DependentUpon>
     </Compile>
     <Compile Include="AppResources\TranslateExtension.cs" />
-    <Compile Include="Model\CreatePhrases.cs" />
-    <Compile Include="Model\DataAccess.cs" />
+    <Compile Include="Services\DataAccess.cs" />
     <Compile Include="ViewModel\CheckPhrase.cs" />
     <Compile Include="ViewModel\PhraseViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />

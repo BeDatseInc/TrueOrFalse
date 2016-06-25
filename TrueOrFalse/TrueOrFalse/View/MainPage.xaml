@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:TrueOrFalse.AppResources;assembly=TrueOrFalse"
-             x:Class="TrueOrFalse.MainPage"
+             x:Class="TrueOrFalse.View.MainPage"
              BackgroundColor="#3F51B5"
              Padding="10"
              SizeChanged="FirstPage_OnSizeChanged"
@@ -23,7 +23,7 @@
         </Image.Source>
       </Image>
 
-      <Button x:Name="StartButton" Text="  {resources:Translate StartButton}  " 
+      <Button x:Name="StartButton" Text="{resources:Translate StartButton}" 
               AbsoluteLayout.LayoutBounds="0.5, 0.5"
               AbsoluteLayout.LayoutFlags="PositionProportional"
               BackgroundColor="#3F51B5"
